@@ -1,8 +1,12 @@
+var walkerArray = [];
+
+
 // Walker constructor function
 // It will take in a position
 // It will then take a `step` every frame
 var Walker = function (initialX, initialY) {
-
+  this.x = initialX;
+  this.y = initialY;
 }
 
 // This extends the Walker class. It is similar
@@ -24,10 +28,18 @@ Walker.prototype.step = function() {
   }
 }
 
-//
+var makeSquare = function(){
+  fill(100,200,300)
+  noStroke()
+  rect(mouseX,mouseY,5,5)
+}
+
 function mouseClicked() {
   // Hint use `push` and `new` to make instances of walkers
   // You might want to pass in mouseX and mouseY
+  walkerArray.push(new Walker(mouseX,mouseY))
+  new makeSquare()
+
 
 }
 
@@ -36,6 +48,10 @@ function setup() {
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
+  //var windowWidth = 500;
+  //var windowHeight = 500;
+  createCanvas(windowWidth,windowHeight);
+  background(200,135,211)
 
 }
 
