@@ -1,7 +1,12 @@
 // Walker constructor function
 // It will take in a position
 // It will then take a `step` every frame
+var WalkersArray=[];
+
 var Walker = function (initialX, initialY) {
+  rect(initialX,initialY,5,5)
+  this.x = initialX;
+  this.y = initialY;
 
 }
 
@@ -24,8 +29,16 @@ Walker.prototype.step = function() {
   }
 }
 
+var spider = new Walker(50,50)
 //
 function mouseClicked() {
+  fill(0);
+  new Walker(mouseX,mouseY,5,5);
+  
+  WalkersArray.push(new Walker(mouseX,mouseY));
+
+  
+  
   // Hint use `push` and `new` to make instances of walkers
   // You might want to pass in mouseX and mouseY
 
@@ -33,6 +46,8 @@ function mouseClicked() {
 
 // Global scope for an array of walkers
 function setup() {
+  background(0);
+  createCanvas(windowWidth, windowHeight)
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
