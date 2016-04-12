@@ -2,7 +2,8 @@
 // It will take in a position
 // It will then take a `step` every frame
 var Walker = function (initialX, initialY) {
-
+  this.x = 0;
+  this.y = 0;
 }
 
 // This extends the Walker class. It is similar
@@ -23,7 +24,7 @@ Walker.prototype.step = function() {
     this.y--;
   }
 }
-
+var spider = new Walker(50,50)
 //
 function mouseClicked() {
   // Hint use `push` and `new` to make instances of walkers
@@ -41,7 +42,8 @@ function setup() {
 
 function draw() {
   // Tell every walker to take a step
-
+  spider.step()
+  console.log(spider.x, spider.y)
 }
 
 
