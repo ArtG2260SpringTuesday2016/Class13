@@ -1,11 +1,8 @@
-var myArray = []
+var walkers = [];
 
 var Walker = function (initialX, initialY) {
-  fill('black')
-  rect(initialX,initialY,5,5)
-  this.render=function(){
-  this.prototype
-  }
+  this.x=initialX;
+  this.y=initialY
 }
 
 Walker.prototype.step = function() {
@@ -13,7 +10,6 @@ Walker.prototype.step = function() {
 
   if (choice === 0) {
     this.x++;
-    rect(this.x,this.y,5,5)
   }
   if (choice === 1) {
     this.x--;
@@ -26,10 +22,10 @@ Walker.prototype.step = function() {
   }
 }
 
+var spider = new Walker(50,50)
 //
 function mouseClicked() {
-  Walker(mouseX,mouseY)
-
+  walker.new(new Walker(mouseX,mouseY))
 }
 
 // Global scope for an array of walkers
@@ -39,7 +35,10 @@ function setup() {
 }
 
 function draw() {
-  Walker(300,300)
+  Walker.step()
+  console.log(spider.x,spider.y)
+  rect(this.x,this.y,5,5)
+  
 
 }
 
