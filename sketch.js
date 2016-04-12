@@ -55,6 +55,12 @@ console.log(walkers);
 
 function draw() {
   // Tell every walker to take a step
+  var walking = function(ar){
+    for(i = 0; i < ar.length; i++){
+      ar[i].step
+    }
+  }
+  walking(walkers)
   
 
 }
