@@ -37,6 +37,8 @@ function mouseClicked() {
   // You might want to pass in mouseX and mouseY
 
   walkers.push(new Walker(mouseX,mouseY))
+  fill(0)
+  rect(initialX,initialY,10,10)
 }
 
 // Global scope for an array of walkers
@@ -53,6 +55,7 @@ function setup() {
 
 function draw() {
   // Tell every walker to take a step
+
 
 }
 
