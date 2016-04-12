@@ -3,6 +3,7 @@
 // It will then take a `step` every frame
 var WalkerArray = []
 var Walker = function (initialX, initialY) {
+ fill(0)
  rect(initialX,initialY,10,10)
 }
 
@@ -27,8 +28,7 @@ Walker.prototype.step = function() {
 
 //
 function mouseClicked() {
-  fill(0)
-  new Walker(mouseX,mouseY, 10, 10)
+  new Walker(mouseX,mouseY)
   // Hint use `push` and `new` to make instances of walkers
   // You might want to pass in mouseX and mouseY
 
