@@ -1,17 +1,19 @@
-// Walker constructor function
-// It will take in a position
-// It will then take a `step` every frame
-var Walker = function (initialX, initialY) {
+var myArray = []
 
+var Walker = function (initialX, initialY) {
+  fill('black')
+  rect(initialX,initialY,5,5)
+  this.render=function(){
+  this.prototype
+  }
 }
 
-// This extends the Walker class. It is similar
-// to just including it inside of the Walker constructor function.
 Walker.prototype.step = function() {
   var choice = Math.floor(random(0,3))
 
   if (choice === 0) {
     this.x++;
+    rect(this.x,this.y,5,5)
   }
   if (choice === 1) {
     this.x--;
@@ -26,21 +28,18 @@ Walker.prototype.step = function() {
 
 //
 function mouseClicked() {
-  // Hint use `push` and `new` to make instances of walkers
-  // You might want to pass in mouseX and mouseY
+  Walker(mouseX,mouseY)
 
 }
 
 // Global scope for an array of walkers
 function setup() {
-  // Set up some kind of background
-  // createCanvas with `windowWidth` and
-  // `windowHeight` minus height of title
-
+  color(175,175,175)
+  createCanvas(windowWidth,windowHeight)
 }
 
 function draw() {
-  // Tell every walker to take a step
+  Walker(300,300)
 
 }
 
