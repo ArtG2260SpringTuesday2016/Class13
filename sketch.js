@@ -4,10 +4,10 @@ var walkers = [];
 // It will take in a position
 // It will then take a `step` every frame
 var Walker = function (initialX, initialY) {
-  this.x = initialX
-  this.y = initialY
-  this.width = 50
-  this.height = 50
+  this.x = initialX;
+  this.y = initialY;
+  this.width = 50;
+  this.height = 50;
   
   this.renderRect = function() {
     fill('black');
@@ -15,6 +15,7 @@ var Walker = function (initialX, initialY) {
   }
   this.renderRect()
 }
+
 
 // This extends the Walker class. It is similar
 // to just including it inside of the Walker constructor function.
@@ -35,9 +36,9 @@ Walker.prototype.step = function() {
   }
 }
 
-//
+
 function mouseClicked() {
-  walkers.push([mouseX, mouseY]);
+  walkers.push(new Walker(mouseX, mouseY));
   new Walker(mouseX, mouseY);
 
 }
@@ -49,12 +50,12 @@ function setup() {
   // `windowHeight` minus height of title
   createCanvas(windowWidth, windowHeight - 32)
   background('White')
-
+console.log(walkers);
 }
 
 function draw() {
   // Tell every walker to take a step
-  console.log(walkers);
+  
 
 }
 
