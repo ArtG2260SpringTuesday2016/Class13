@@ -1,55 +1,10 @@
-// var Walker = function (initialX, initialY) {
-
-// }
-
-// class Walker{
-//   int x;
-//   int y;
-// }
-
-// Walker() {
-//   x = width/2;
-//   y = height/3;
-// }
-
-// void display(){
-//   stroke(0);
-//   point(x,y);
-// }
-
-// void step() {
-//   size(640,360);
-//   w = new Walker();
-//   background(255);
-// }
-
-//   int choice = int(random(4));
-// }
-
-//   if (choice === 0) {
-//     this.x++;
-//   }
-//   if (choice === 1) {
-//     this.x--;
-//   }
-//   if (choice === 2) {
-//     this.y++;
-//   }
-//   else {
-//     this.y--;
-//   }
-// }
-
-
-
-
-
 // Walker constructor function
 // It will take in a position
 // It will then take a `step` every frame
+var walkers = [];
 var Walker = function (initialX, initialY) {
-  this.x = 0; 
-  this.y = 0; 
+  this.x = initialX; 
+  this.y = initialY; 
 }
 
 // This extends the Walker class. It is similar
@@ -83,7 +38,9 @@ function setup() {
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
+  createCanvas(windowWidth, windowHeight - 32)
   background(255);
+  
 }
 
 function draw() {
