@@ -3,7 +3,7 @@
 // It will then take a `step` every frame
 
 var walkers = [];
-
+//
 var Walker = function (initialX, initialY) {
   this.x = initialX;
   this.y = initialY;
