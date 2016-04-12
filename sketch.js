@@ -4,8 +4,8 @@
 var walkers = []
 var Walker = function (initialX, initialY) {
 
- this.x = 0;
- this.y = 0;
+ this.x = initialX;
+ this.y = initialY;
 //  fill(0)
 // rect(this.x,this.y,10,10)
 }
