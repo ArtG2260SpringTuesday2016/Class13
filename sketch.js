@@ -4,6 +4,8 @@
 var WalkerArray = []
 var Walker = function (initialX, initialY) {
  fill(0)
+ this.x = 0;
+ this.y = 0;
  rect(initialX,initialY,10,10)
 }
 
@@ -26,6 +28,7 @@ Walker.prototype.step = function() {
   }
 }
 
+var creepyspider = new Walker (50,50)
 //
 function mouseClicked() {
   new Walker(mouseX,mouseY)
