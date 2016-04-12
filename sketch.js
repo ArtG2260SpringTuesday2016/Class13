@@ -1,15 +1,14 @@
-
 // Walker constructor function
 // It will take in a position
 // It will then take a `step` every frame
-var Walker = function (initalX, initialY) {
+var Walker = function (initialX, initialY) {
 
 }
 
 // This extends the Walker class. It is similar
 // to just including it inside of the Walker constructor function.
 Walker.prototype.step = function() {
-  var choice = random(4)
+  var choice = Math.floor(random(0,3))
 
   if (choice === 0) {
     this.x++;
