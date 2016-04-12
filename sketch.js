@@ -1,12 +1,13 @@
 // Walker constructor function
 // It will take in a position
 // It will then take a `step` every frame
-var WalkerArray = []
+var walkers = []
 var Walker = function (initialX, initialY) {
- fill(0)
+
  this.x = 0;
  this.y = 0;
- rect(initialX,initialY,10,10)
+//  fill(0)
+// rect(this.x,this.y,10,10)
 }
 
 // This extends the Walker class. It is similar
@@ -35,12 +36,14 @@ function mouseClicked() {
   // Hint use `push` and `new` to make instances of walkers
   // You might want to pass in mouseX and mouseY
 
+  walkers.push(new Walker(mouseX,mouseY))
 }
 
 // Global scope for an array of walkers
 function setup() {
   createCanvas(windowWidth,windowHeight)
   background(255)
+  console.log(walkers)
 
   // Set up some kind of background
   // createCanvas with `windowWidth` and
