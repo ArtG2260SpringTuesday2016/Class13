@@ -44,3 +44,12 @@ function draw() {
   // Tell every walker to take a step
 
 }
+
+
+/*
+  When you have this working try implementing
+  some of the following:
+    - color or shape changes on key press
+    - garbage collection, if a Walker moves off screen, kill it.
+    - something we come up with in class
+*/
