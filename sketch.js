@@ -7,7 +7,12 @@ var walkerArray = [];
 var Walker = function (initialX, initialY) {
   this.x = initialX;
   this.y = initialY;
+
+  fill(100,200,300)
+  noStroke()
+  rect(mouseX,mouseY,5,5)
 }
+
 
 // This extends the Walker class. It is similar
 // to just including it inside of the Walker constructor function.
@@ -28,18 +33,14 @@ Walker.prototype.step = function() {
   }
 }
 
-var makeSquare = function(){
-  fill(100,200,300)
-  noStroke()
-  rect(mouseX,mouseY,5,5)
-}
+
 
 function mouseClicked() {
   // Hint use `push` and `new` to make instances of walkers
   // You might want to pass in mouseX and mouseY
   walkerArray.push(new Walker(mouseX,mouseY))
-  new makeSquare()
-
+  
+  
 
 }
 
@@ -57,6 +58,9 @@ function setup() {
 
 function draw() {
   // Tell every walker to take a step
+  for (var i = 0; i < walkerArray.length; i++){
+    
+  }
 
 }
 
