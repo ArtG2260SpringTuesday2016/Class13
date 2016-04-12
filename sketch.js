@@ -2,7 +2,7 @@
 // It will take in a position
 // It will then take a `step` every frame
 var Walker = function (initialX, initialY) {
-
+ rect(initialX, initialY,20,20)
 }
 
 // This extends the Walker class. It is similar
@@ -28,12 +28,13 @@ Walker.prototype.step = function() {
 function mouseClicked() {
   // Hint use `push` and `new` to make instances of walkers
   // You might want to pass in mouseX and mouseY
-
+new Walker(mouseX,mouseY,2,2)
 }
 
 // Global scope for an array of walkers
 function setup() {
   // Set up some kind of background
+  createCanvas(800,800)
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
 
@@ -41,6 +42,7 @@ function setup() {
 
 function draw() {
   // Tell every walker to take a step
+  
 
 }
 
