@@ -37,6 +37,7 @@ Walker.prototype.step = function() {
 
 //
 function mouseClicked() {
+  walkers.push([mouseX, mouseY]);
   new Walker(mouseX, mouseY);
 
 }
@@ -53,6 +54,7 @@ function setup() {
 
 function draw() {
   // Tell every walker to take a step
+  console.log(walkers);
 
 }
 
@@ -64,3 +66,4 @@ function draw() {
     - garbage collection, if a Walker moves off screen, kill it.
     - something we come up with in class
 */
+
