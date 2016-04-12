@@ -38,14 +38,15 @@ function setup() {
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
-  createCanvas(windowWidth, windowHeight - 32)
+  createCanvas(windowWidth, windowHeight - 32);
   background(255);
   
 }
 
 function draw() {
   // Tell every walker to take a step
-  walker.x 
+  w.step();
+  w.display();
 }
 
 
