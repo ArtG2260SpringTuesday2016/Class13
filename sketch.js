@@ -37,8 +37,7 @@ Walker.prototype.step = function() {
 
 //
 function mouseClicked() {
-  // Hint use `push` and `new` to make instances of walkers
-  // You might want to pass in mouseX and mouseY
+  new Walker(mouseX, mouseY);
 
 }
 
@@ -49,7 +48,6 @@ function setup() {
   // `windowHeight` minus height of title
   createCanvas(windowWidth, windowHeight - 32)
   background('White')
-  new Walker(500, 500);
 
 }
 
