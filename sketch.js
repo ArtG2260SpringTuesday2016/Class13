@@ -20,24 +20,29 @@ Walker.prototype.step = function() {
   else {
     this.y--;
   }
+  
+  this.render{
+    rect(this.x,this.y,5,5)
+  }
 }
 
-var spider = new Walker(50,50)
-//
+var spider = new Walker(this.x,this.y)
+
 function mouseClicked() {
-  walker.new(new Walker(mouseX,mouseY))
+  spider.push(new Walker(mouseX,mouseY))
 }
 
 // Global scope for an array of walkers
 function setup() {
   color(175,175,175)
   createCanvas(windowWidth,windowHeight)
+  spider=new Walker
 }
 
 function draw() {
-  Walker.step()
+  Walker.prototype.step()
+  Walker.prototype.render()
   console.log(spider.x,spider.y)
-  rect(this.x,this.y,5,5)
   
 
 }
