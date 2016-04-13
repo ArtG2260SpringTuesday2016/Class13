@@ -6,8 +6,8 @@ var walkers = [];
 var Walker = function (initialX, initialY) {
   this.x = initialX;
   this.y = initialY;
-  this.width = 10;
-  this.height = 10;
+  this.width = 5;
+  this.height = 5;
   
   this.renderRect = function() {
     fill('black');
