@@ -5,25 +5,25 @@ var Walker = function (initialX, initialY) {
   this.x=initialX;
   this.y=initialY;
 
-  this.display=function(){
-    rect(this.x,this.y,5,5)
-  }
-
   this.move = function() {
-    var choice = Math.floor(random(0,3))
+    var choice = random(0,3)
   
-    if (choice === 0) {
+    if (choice<=1) {
       this.x++;
     }
-    if (choice === 1) {
+    if ((choice > 1) && (choice<=2)) {
       this.x--;
     }
-    if (choice === 2) {
+    if ((choice > 2) && (choice<=3)) {
       this.y++;
     }
-    else {
+    else{
       this.y--;
     }
+  }
+  
+  this.display=function(){
+    rect(this.x,this.y,5,5)
   }
   
   this.render=function(){
