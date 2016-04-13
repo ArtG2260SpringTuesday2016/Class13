@@ -6,8 +6,8 @@ var walkers = [];
 var Walker = function (initialX, initialY) {
   this.x = initialX;
   this.y = initialY;
-  this.width = 50;
-  this.height = 50;
+  this.width = 10;
+  this.height = 10;
   
   this.renderRect = function() {
     fill('black');
@@ -19,18 +19,18 @@ var Walker = function (initialX, initialY) {
 // This extends the Walker class. It is similar
 // to just including it inside of the Walker constructor function.
 Walker.prototype.step = function() {
-  var choice = Math.floor(random(0,2))
+  var choice = random(0, 4)
 
-  if (choice === 0) {
+  if (0<=choice && choice<1) {
     this.x++;
   }
-  if (choice === 1) {
+  if (1<=choice && choice<2) {
     this.x--;
   }
-  if (choice === 2) {
+  if (2<=choice && choice<3) {
     this.y++;
   }
-  else {
+  if (3<=choice && choice<4) {
     this.y--;
   }
 };
