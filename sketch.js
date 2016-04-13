@@ -3,15 +3,29 @@
 // It will take in a position
 // It will then take a `step` every frame
 var walkers = [];
-
+var shapes = false;
 var Walker = function (initialX, initialY) {
  this.x = initialX;
  this.y = initialY;
  
+ 
+ this.makeCircle = function (){
+ ellipse(this.x,this.y,20,20)
+}
  this.makeRect = function (){
  rect(this.x, this.y,20,20)
 }
+  
+  this.chooseShape = function(){
+    if (shapes){
+     this.makeCircle()
+    }
+    else {
+      this.makeRect()
+    }
+  }
 }
+
 
 // This extends the Walker class. It is similar
 // to just including it inside of the Walker constructor function.
@@ -28,7 +42,7 @@ Walker.prototype.step = function() {
    this.y++;
  }
  else {
-   this.y++;
+   this.y--;
  }
 }
 
@@ -39,6 +53,13 @@ function mouseClicked() {
  
   //Array.push(thing to put in the array)
   walkers.push(new Walker(mouseX,mouseY))
+  debugger
+  if (shapes){
+    shapes = false
+  }
+  else if (!shapes){
+    shapes = true
+  }
 }
 
 // Global scope for an array of walkers
@@ -55,21 +76,12 @@ function draw() {
  for (i = 0; i < walkers.length;i++){
    
   
-      walkers[i].makeRect()
-       walkers[i].step()
+      walkers[i].chooseShape()
+      walkers[i].step()
+      
     }
   }
-  
-  // console.log(walkers[i])
- 
 
 
 
 
-/*
- When you have this working try implementing
- some of the following:
-   - color or shape changes on key press
-   - garbage collection, if a Walker moves off screen, kill it.
-   - something we come up with in class
-*/
