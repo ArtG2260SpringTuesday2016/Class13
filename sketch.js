@@ -4,9 +4,14 @@
 var WalkersArray=[];
 
 var Walker = function (initialX, initialY) {
-  rect(initialX,initialY,10,10)
   this.x = initialX;
   this.y = initialY;
+  
+  this.drawRect = function() {
+  rect(this.x,this.y,10,10)
+}  
+
+  
 
 }
 
@@ -29,7 +34,7 @@ Walker.prototype.step = function() {
   }
 }
 
-var spider = new Walker(50,50)
+
 //
 function mouseClicked() {
   WalkersArray.push(new Walker(mouseX,mouseY));
@@ -44,7 +49,7 @@ function mouseClicked() {
 // Global scope for an array of walkers
 function setup() {
   background(0);
-  createCanvas(windowWidth, windowHeight)
+  createCanvas(windowWidth, windowHeight-30)
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
@@ -53,8 +58,12 @@ function setup() {
 
 function draw() {
   // Tell every walker to take a step
-Walker.step();
-Walker.render();
+for(i=0; i<WalkersArray.length;i++){
+  WalkersArray[i].step()
+  WalkersArray[i].drawRect()
+  
+  //console.log(WalkersArray[i])
+}
 
 }
 
