@@ -13,14 +13,13 @@ var Walker = function (initialX, initialY) {
     fill('black');
     rect(this.x, this.y, this.width, this.height)
   }
-  this.renderRect()
 }
 
 
 // This extends the Walker class. It is similar
 // to just including it inside of the Walker constructor function.
 Walker.prototype.step = function() {
-  var choice = Math.floor(random(0,3))
+  var choice = Math.floor(random(0,2))
 
   if (choice === 0) {
     this.x++;
@@ -34,7 +33,7 @@ Walker.prototype.step = function() {
   else {
     this.y--;
   }
-}
+};
 
 
 function mouseClicked() {
@@ -48,8 +47,8 @@ function setup() {
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
-  createCanvas(windowWidth, windowHeight - 32)
-  background('White')
+  createCanvas(windowWidth, windowHeight - 32);
+  background('White');
 console.log(walkers);
 }
 
@@ -57,15 +56,12 @@ function draw() {
   // Tell every walker to take a step
   var walking = function(ar){
     for(i = 0; i < ar.length; i++){
-      ar[i].step
+      ar[i].step()
+      ar[i].renderRect()
     }
   }
   walking(walkers)
-  
-
 }
-
-
 /*
   When you have this working try implementing
   some of the following:
@@ -73,4 +69,3 @@ function draw() {
     - garbage collection, if a Walker moves off screen, kill it.
     - something we come up with in class
 */
-
