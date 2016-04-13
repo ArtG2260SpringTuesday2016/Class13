@@ -5,6 +5,8 @@ var walkers = [];
 var Walker = function (initialX, initialY) {
   this.x = initialX; 
   this.y = initialY; 
+  this.width = 1;
+  this.height = 3;
 }
 
 // This extends the Walker class. It is similar
@@ -31,6 +33,8 @@ function mouseClicked(mouseX, mouseY) {
   // Hint use `push` and `new` to make instances of walkers
   // You might want to pass in mouseX and mouseY
   w = new Walker();
+  walkers.push(new Walker(mouseX,mouseY));
+  new Walker(mouseX, mouseY);
 }
 
 // Global scope for an array of walkers
@@ -38,15 +42,21 @@ function setup() {
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
-  createCanvas(windowWidth, windowHeight - 32);
+  createCanvas(windowWidth, windowHeight - 30);
   background(255);
+  
   
 }
 
 function draw() {
   // Tell every walker to take a step
-  w.step();
-  w.display();
+  var walking = function(ar){
+    for(i = 0; i < ar.length; i++){
+      ar[i].step()
+      ar[i].renderRect()
+    }
+  }
+  walking(walkers)
 }
 
 
