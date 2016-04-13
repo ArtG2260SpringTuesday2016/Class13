@@ -1,65 +1,67 @@
+var walkers = [];
+
 // Walker constructor function
 // It will take in a position
 // It will then take a `step` every frame
-var walkers = []
 var Walker = function (initialX, initialY) {
+  this.x = initialX;
+  this.y = initialY;
+  this.width = 10;
+  this.height = 10;
 
- this.x = initialX;
- this.y = initialY;
-//  fill(0)
-// rect(this.x,this.y,10,10)
+  this.renderRect = function() {
+    fill('black');
+    rect(this.x, this.y, this.width, this.height)
+  }
 }
+
 
 // This extends the Walker class. It is similar
 // to just including it inside of the Walker constructor function.
 Walker.prototype.step = function() {
-  var choice = Math.floor(random(0,3))
+  var choice = random(0, 4)
 
-  if (choice === 0) {
+  if (0<=choice && choice<1) {
     this.x++;
   }
-  if (choice === 1) {
+  if (1<=choice && choice<2) {
     this.x--;
   }
-  if (choice === 2) {
+  if (2<=choice && choice<3) {
     this.y++;
   }
-  else {
+  if (3<=choice && choice<4) {
     this.y--;
   }
-}
+};
 
-var creepyspider = new Walker (50,50)
-//
+
 function mouseClicked() {
-  new Walker(mouseX,mouseY)
-  // Hint use `push` and `new` to make instances of walkers
-  // You might want to pass in mouseX and mouseY
+  walkers.push(new Walker(mouseX, mouseY));
+  new Walker(mouseX, mouseY);
 
-  walkers.push(new Walker(mouseX,mouseY))
-  fill(0)
-  rect(initialX,initialY,10,10)
 }
 
 // Global scope for an array of walkers
 function setup() {
-  createCanvas(windowWidth,windowHeight)
-  background(255)
-  console.log(walkers)
-
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
-
+  createCanvas(windowWidth, windowHeight - 32);
+  background('White');
+console.log(walkers);
 }
 
 function draw() {
   // Tell every walker to take a step
-
-
+  var walking = function(ar){
+    for(i = 0; i < ar.length; i++){
+      ar[i].step()
+      ar[i].renderRect()
+    }
+  }
+  walking(walkers)
 }
-
-
 /*
   When you have this working try implementing
   some of the following:
