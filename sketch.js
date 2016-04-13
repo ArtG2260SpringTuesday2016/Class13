@@ -11,6 +11,11 @@ var Walker = function (initialX, initialY) {
   noStroke();
   rect(this.x,this.y,10,10);
   
+  
+  this.renderRect = function() {
+  fill('black');
+  rect(this.x, this.y, 10, 10);
+  }
 }
 
 // This extends the Walker class. It is similar
@@ -57,7 +62,7 @@ function draw() {
   var walking = function(walkers){
     for(i = 0; i < walkers.length; i++){
       walkers[i].step();
-      walkers[i].renderRect(this.x,this.y,10,10);
+      walkers[i].renderRect();
     }
   }
   walking(walkers)
