@@ -8,16 +8,16 @@ var Walker = function (initialX, initialY) {
   this.x = initialX;
   this.y = initialY;
 
-  fill(100,200,300)
-  noStroke()
-  rect(mouseX,mouseY,5,5)
+  fill(100,200,300);
+  noStroke();
+  rect(this.x,this.y,5,5);
 }
 
 
 // This extends the Walker class. It is similar
 // to just including it inside of the Walker constructor function.
 Walker.prototype.step = function() {
-  var choice = Math.floor(random(0,3))
+  var choice = Math.floor(random(0,3));
 
   if (choice === 0) {
     this.x++;
@@ -49,17 +49,18 @@ function setup() {
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
-  //var windowWidth = 500;
-  //var windowHeight = 500;
   createCanvas(windowWidth,windowHeight);
-  background(200,135,211)
+  background(200,135,211);
 
 }
 
 function draw() {
   // Tell every walker to take a step
-  for (var i = 0; i < walkerArray.length; i++){
-    
+  var makeWalk = function(){
+    for (var i = 0; i < walkerArray.length; i++){
+      new Walker(walkerArray[i].x.step,walkerArray[i].y.step)
+    }
+    makeWalk(walkerArray);
   }
 
 }
