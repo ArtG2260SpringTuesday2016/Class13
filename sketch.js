@@ -10,7 +10,6 @@ var Walker = function (initialX, initialY) {
   this.height = 10;
 
   this.renderRect = function() {
-    fill('black');
     rect(this.x, this.y, this.width, this.height)
   }
 }
@@ -39,6 +38,8 @@ Walker.prototype.step = function() {
 function mouseClicked() {
   walkers.push(new Walker(mouseX, mouseY));
   new Walker(mouseX, mouseY);
+  noStroke()
+  fill(random(0,255),random(0,255),random(0,255))
 
 }
 
