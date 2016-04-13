@@ -7,6 +7,15 @@ var walkers = [];
 var Walker = function (initialX, initialY) {
   this.x = initialX;
   this.y = initialY;
+  fill("black");
+  noStroke();
+  rect(this.x,this.y,10,10);
+  
+  
+  this.renderRect = function() {
+  fill('black');
+  rect(this.x, this.y, 10, 10);
+  }
 }
 
 // This extends the Walker class. It is similar
@@ -28,15 +37,21 @@ Walker.prototype.step = function() {
   }
 }
 
-
+var value =0;
 function mouseClicked() {
   // Hint use `push` and `new` to make instances of walkers
   // You might want to pass in mouseX and mouseY
   walkers.push(new Walker(mouseX,mouseY));
+
+  
+  
 }
 
 // Global scope for an array of walkers
 function setup() {
+  createCanvas(windowWidth,windowHeight);
+  background("hotpink");
+  
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
@@ -44,10 +59,14 @@ function setup() {
 }
 
 function draw() {
-  // Tell every walker to take a step
-
+  var walking = function(walkers){
+    for(i = 0; i < walkers.length; i++){
+      walkers[i].step();
+      walkers[i].renderRect();
+    }
+  }
+  walking(walkers)
 }
-
 
 /*
   When you have this working try implementing
