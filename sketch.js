@@ -57,7 +57,7 @@ function draw() {
   var walking = function(walkers){
     for(i = 0; i < walkers.length; i++){
       walkers[i].step();
-      walkers[i].renderRect();
+      walkers[i].renderRect(this.x,this.y,10,10);
     }
   }
   walking(walkers)
