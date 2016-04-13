@@ -4,7 +4,7 @@
 var WalkersArray=[];
 
 var Walker = function (initialX, initialY) {
-  rect(initialX,initialY,5,5)
+  rect(initialX,initialY,10,10)
   this.x = initialX;
   this.y = initialY;
 
@@ -32,9 +32,6 @@ Walker.prototype.step = function() {
 var spider = new Walker(50,50)
 //
 function mouseClicked() {
-  fill(0);
-  new Walker(mouseX,mouseY,5,5);
-  
   WalkersArray.push(new Walker(mouseX,mouseY));
 
   
@@ -56,6 +53,8 @@ function setup() {
 
 function draw() {
   // Tell every walker to take a step
+Walker.step();
+Walker.render();
 
 }
 
