@@ -2,7 +2,7 @@
 // It will take in a position
 // It will then take a `step` every frame
 var WalkersArray=[];
-
+var value = 0;
 var Walker = function (initialX, initialY) {
   this.x = initialX;
   this.y = initialY;
@@ -38,7 +38,11 @@ Walker.prototype.step = function() {
 //
 function mouseClicked() {
   WalkersArray.push(new Walker(mouseX,mouseY));
-
+if(value ==0) {
+      value = 230;
+    } else {
+      value = 0;
+    }
   
   
   // Hint use `push` and `new` to make instances of walkers
@@ -58,14 +62,19 @@ function setup() {
 
 function draw() {
   // Tell every walker to take a step
+  fill(value);
 for(i=0; i<WalkersArray.length;i++){
   WalkersArray[i].step()
   WalkersArray[i].drawRect()
   
+}
+  
+
+
   //console.log(WalkersArray[i])
 }
 
-}
+
 
 
 /*
