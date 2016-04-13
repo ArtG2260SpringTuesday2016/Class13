@@ -38,7 +38,8 @@ function mouseClicked() {
 function setup() {
   createCanvas(windowWidth,windowHeight)
   background(255)
-  mouseClicked.push(walkerArray)
+  
+  walkerArray.push(new Walker(mouseX,mouseY));
 
   // Set up some kind of background
   // createCanvas with `windowWidth` and
