@@ -7,6 +7,12 @@ var walkers = [];
 var Walker = function (initialX, initialY) {
   this.x = initialX;
   this.y = initialY;
+  rect(this.x,this.y,20,20);
+  
+  this.renderRect = function() {
+  fill('yellow');
+  rect(this.x, this.y, 20, 20);
+  }
 }
 
 // This extends the Walker class. It is similar
@@ -14,13 +20,13 @@ var Walker = function (initialX, initialY) {
 Walker.prototype.step = function() {
   var choice = Math.floor(random(0,3))
 
-  if (choice === 0) {
+  if ((choice > 1) && (choice < 2)){
     this.x++;
   }
-  if (choice === 1) {
+  if ((choice > 3) && (choice < 4)){
     this.x--;
   }
-  if (choice === 2) {
+  if ((choice > 5) && (choice < 6)){
     this.y++;
   }
   else {
@@ -30,8 +36,7 @@ Walker.prototype.step = function() {
 
 
 function mouseClicked() {
-  // Hint use `push` and `new` to make instances of walkers
-  // You might want to pass in mouseX and mouseY
+
   walkers.push(new Walker(mouseX,mouseY));
 }
 
@@ -40,12 +45,16 @@ function setup() {
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
-
+  createCanvas(windowWidth,windowHeight);
+  background("red");
 }
 
 function draw() {
   // Tell every walker to take a step
-
+  for(var i=0; i<walkers.length;i++){
+      walkers[i].step();
+      walkers[i].renderRect();
+  }
 }
 
 
@@ -56,3 +65,5 @@ function draw() {
     - garbage collection, if a Walker moves off screen, kill it.
     - something we come up with in class
 */
+
+
