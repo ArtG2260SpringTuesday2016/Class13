@@ -7,21 +7,28 @@ var walkers = [];
 var Walker = function (initialX, initialY) {
   this.x = initialX;
   this.y = initialY;
+  rect(this.x,this.y,20,20);
+  
+  this.renderRect = function() {
+  fill(10,10, random(10,230));
+  rect(this.x, this.y, random(10,40), random(10,40));
+  }
+  
 }
 
 // This extends the Walker class. It is similar
 // to just including it inside of the Walker constructor function.
 Walker.prototype.step = function() {
-  var choice = Math.floor(random(0,3))
+  var choice = Math.floor(random(0,4))
 
   if (choice === 0) {
-    this.x++;
-  }
-  if (choice === 1) {
     this.x--;
   }
+  if (choice === 1) {
+    this.x--,  this.x++;
+  }
   if (choice === 2) {
-    this.y++;
+    this.y++, this.y++, this.y++;
   }
   else {
     this.y--;
@@ -32,6 +39,7 @@ Walker.prototype.step = function() {
 function mouseClicked() {
   // Hint use `push` and `new` to make instances of walkers
   // You might want to pass in mouseX and mouseY
+  
   walkers.push(new Walker(mouseX,mouseY));
 }
 
@@ -40,12 +48,16 @@ function setup() {
   // Set up some kind of background
   // createCanvas with `windowWidth` and
   // `windowHeight` minus height of title
-
+  createCanvas(windowWidth,windowHeight-200);
+  background('orange')
 }
 
 function draw() {
   // Tell every walker to take a step
-
+  for(var i=0; i<walkers.length;i++){
+      walkers[i].step();
+      walkers[i].renderRect();
+  }
 }
 
 
